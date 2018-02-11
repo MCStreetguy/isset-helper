@@ -1,4 +1,4 @@
-module.exports = function isset(variable,type) {
+module.exports = function isset(test,type) {
   if(!type) {
     var _check = false;
   } else {
