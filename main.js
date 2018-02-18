@@ -5,6 +5,7 @@ module.exports = function isset(test,type) {
     _check = false;
   } else {
     _check = true;
+    type = type.toLowerCase();
 
     try {
       _instance = test instanceof type;
@@ -18,7 +19,7 @@ module.exports = function isset(test,type) {
     test != undefined && (
       !_check || (typeof test === type || _instance)
     ) && (
-      !_check || !(type.toLowerCase() == 'string') || (test != '' && test != ' ')
+      !_check || !(type == 'string') || (test != '' && test != ' ')
     )
   )
 }
