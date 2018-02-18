@@ -1,19 +1,21 @@
 module.exports = function isset(test,type) {
+  var _instance, _check;
+
   if(!type) {
-    var _check = false;
+    _check = false;
   } else {
-    var _check = true;
+    _check = true;
     try {
-      var _instance = test instanceof type;
+      _instance = test instanceof type;
     } catch (e) {
-      var _instance = false;
+      _instance = false;
     }
   }
 
   return (
     test != null &&
     test != undefined && (
-      _check && (typeof test === type || _instance)
+      !_check || (typeof test === type || _instance)
     )
-  );
+  )
 }
