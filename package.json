@@ -1,6 +1,6 @@
 {
   "name": "isset-helper",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A tiny helper method, checking a variable for existence",
   "main": "main.js",
   "scripts": {
