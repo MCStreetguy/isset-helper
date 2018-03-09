@@ -57,10 +57,9 @@ _(Example below use jQuery syntax for simplification. It's not required for the 
 ```JavaScript
 $('#myform').on('submit',function (event) {
   var user = $(this).find('#username').val()
-  if(!Util.isset(user,'string')) return false
-
   var pass = $(this).find('#password').val()
-  if(!Util.isset(pass,'string')) return false
+  
+  return (Util.isset(user,'string') && Util.isset(pass,'string'))
 })
 ```
 
