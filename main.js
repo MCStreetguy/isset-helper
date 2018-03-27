@@ -5,12 +5,17 @@ module.exports = function isset(test,type) {
     _check = false;
   } else {
     _check = true;
-    type = type.toLowerCase();
 
     try {
       _instance = test instanceof type;
     } catch (e) {
       _instance = false;
+      
+      try {
+        type = type.toLowerCase();
+      } catch(e) {
+        _check = false;
+      }
     }
   }
 
