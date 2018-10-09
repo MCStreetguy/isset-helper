@@ -1,19 +1,29 @@
 {
   "name": "isset-helper",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A tiny helper method, checking a variable for existence",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "./dist/module.js",
+  "author": {
+    "name": "Maximilian Schmidt",
+    "email": "maximilianschmidt404@gmail.com",
+    "url": "https://www.mcstreetguy.de/"
   },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MCStreetguy/isset-helper/issues",
+    "email": "maximilianschmidt404@gmail.com"
+  },
+  "homepage": "https://github.com/MCStreetguy/isset-helper#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MCStreetguy/isset-helper.git"
   },
-  "author": "Maximilian Schmidt <maximilianschmidt404@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/MCStreetguy/isset-helper/issues"
-  },
-  "homepage": "https://github.com/MCStreetguy/isset-helper#readme"
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-header": "^2.0.5",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "pump": "^3.0.0"
+  }
 }

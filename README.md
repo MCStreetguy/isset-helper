@@ -1,91 +1,69 @@
 # Isset Helper
+
 **A tiny helper method for Javascript, checking a variable for existence.**
 
 Since checking variable types and existence always has been painful in Javascript, validation conditions normally are exhausting.
-This module solves this definitely.   
+This module solves this definitely.
 
 ---
 
 ## Installation
 
-```
+### as a module
+
+Install the library through your preferred package manager:
+
+``` bash
 $ npm install --save isset-helper
 # or
 $ yarn add isset-helper
 ```
 
-## Require
+Then you can require the module as usual:
 
-```JavaScript
+``` JavaScript
 const isset = require('isset-helper');
 ```
 
-or if you prefer a more object-oriented usage of this method:
+### in the browser
 
-```JavaScript
-const Util = {
-  isset: require('isset-helper')
-}
+Include _one_ of the following script tags in your pages head:
+
+``` html
+<script src="https://cdn.jsdelivr.net/npm/isset-helper@2/dist/isset.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mcstreetguy/isset-helper@2/dist/isset.min.js"></script>
+<script src="https://bundle.run/isset-helper@2/dist/isset.min.js">
+<script src="https://unpkg.com/isset-helper@2/dist/isset.min.js">
 ```
+
+The library registers the `isset` function automatically on the `window` object.
 
 ## Usage
 
-```JavaScript
-isset(variable,type) {}
-// or
-Util.isset(variable,type) {}
+``` JavaScript
+isset(variable, type);
 ```
 
-`variable` can be anything. It's value is going to be checked.    
-`type` can be a string, class or even left empty.
+`variable` can be anything. It's value is going to be checked.  
+`type` can be a string, class or even left out.
 
-The algorithm follows the subsequent rules:   
+The algorithm follows the subsequent rules:  
 1. `variable` is not `null`
 2. `variable` is not `undefined`
 3. If `type` is a string, `typeof variable` has to match `type`
 4. Otherwise, `variable` has to match `instanceof type`
 5. If `type` is `"string"`, `variable` is not an empty string
 
-**Please notice:**    
-- The algorithm always runs the `instanceof`-check, leaving it out of consideration if the check runs in any error.
+**Please notice:**  
+
+- The algorithm always runs the `instanceof`-check, leaving it out of consideration if the check produces any error.
 - The algorithm doesn't check for the exact value (apart from the empty string case mentioned above), thus `false` will also be considered valid.
 
-## Examples
-### Form validation
-_(Example below use jQuery syntax for simplification. It's not required for the helper to work!)_
+## Contributing
 
-```JavaScript
-$('#myform').on('submit',function (event) {
-  var user = $(this).find('#username').val()
-  var pass = $(this).find('#password').val()
-  
-  return (Util.isset(user,'string') && Util.isset(pass,'string'))
-})
-```
+If, contrary to expectations, you find an error in the function, please report it to the Issues page.
 
-### Constructor validation
-```JavaScript
-class House {...}
+## License
 
-class Person {
-  constructor(name,age,house) {
-    if(Util.isset(name,'string')) {
-      this.name = name;
-    } else {
-      throw new Error('Person constructor is missing required argument: name')
-    }
-
-    if(Util.isset(age,'number')) {
-      this.age = age;
-    } else {
-      throw new Error('Person constructor is missing required argument: age')
-    }
-
-    if(Util.isset(house,House)) {
-      this.house = house;
-    } else {
-      throw new Error('Person constructor is missing required argument: house')
-    }
-  }
-}
-```
+This library is licensed under the MIT License.
+You may find [a copy of the license](/blob/master/LICENSE) at the root of the project source.

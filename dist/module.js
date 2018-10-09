@@ -1,0 +1,1 @@
+module.exports=function isset(t,e){var n,r;if(e){r=!0;try{n=t instanceof e}catch(t){n=!1;try{e=e.toLowerCase()}catch(t){r=!1}}}else r=!1;return null!=t&&null!=t&&(!r||typeof t===e||n)&&(!r||!("string"==e)||""!=t&&" "!=t)};

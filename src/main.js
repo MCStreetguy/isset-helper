@@ -1,4 +1,4 @@
-module.exports = function isset(test,type) {
+function isset(test,type) {
   var _instance, _check;
 
   if(!type) {
