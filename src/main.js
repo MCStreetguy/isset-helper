@@ -24,7 +24,7 @@ function isset(test,type) {
     test != undefined && (
       !_check || (typeof test === type || _instance)
     ) && (
-      !_check || !(type == 'string') || (test != '' && test != ' ')
+      !_check || (type != 'string') || (test != '' && test != ' ')
     )
-  )
+  );
 }
