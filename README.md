@@ -66,4 +66,4 @@ If, contrary to expectations, you find an error in the function, please report i
 ## License
 
 This library is licensed under the MIT License.
-You may find [a copy of the license](/blob/master/LICENSE) at the root of the project source.
+You may find [a copy of the license](/LICENSE) at the root of the project source.
