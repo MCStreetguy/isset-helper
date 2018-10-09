@@ -32,8 +32,8 @@ Include _one_ of the following script tags in your pages head:
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/isset-helper@2/dist/isset.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/mcstreetguy/isset-helper@2/dist/isset.min.js"></script>
-<script src="https://bundle.run/isset-helper@2/dist/isset.min.js">
-<script src="https://unpkg.com/isset-helper@2/dist/isset.min.js">
+<script src="https://bundle.run/isset-helper@2/dist/isset.min.js"></script>
+<script src="https://unpkg.com/isset-helper@2/dist/isset.min.js"></script>
 ```
 
 The library registers the `isset` function automatically on the `window` object.
