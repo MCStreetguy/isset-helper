@@ -1,8 +1,8 @@
 # Isset Helper
 
-**A tiny helper method for Javascript, checking a variable for existence.**
+**Get rid of weak typing and improve your assertions: A tiny helper method for Javascript**
 
-Since checking variable types and existence always has been painful in Javascript, validation conditions normally are exhausting.
+Since checking variable types and existence always has been painful in Javascript, validation assertions normally are exhausting to write.
 This module solves this definitely.
 
 ---
@@ -56,12 +56,12 @@ The algorithm follows the subsequent rules:
 
 **Please notice:**  
 
-- The algorithm always runs the `instanceof`-check, leaving it out of consideration if the check produces any error.
 - The algorithm doesn't check for the exact value (apart from the empty string case mentioned above), thus `false` will also be considered valid.
 
 ## Contributing
 
 If, contrary to expectations, you find an error in the function, please report it to the Issues page.
+Feel free to make changes to a fork yourself and propose a detailed pull request when finished. 
 
 ## License
 
