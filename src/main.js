@@ -1,3 +1,12 @@
+'use strict';
+
+/**
+ * Check a variable for existence and validate it's type easily.
+ * 
+ * @param {*} test The value/variable to test
+ * @param {string|function} type The expected type or an object constructor to test for
+ * @returns {boolean} true if all checks succeeded, false otherwise
+ */
 function isset(test, type) {
   /**
    * @desc true if the instanceof check succeeded, false otherwise

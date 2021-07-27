@@ -1,0 +1,1 @@
+"use strict";module.exports=function isset(t,r){var e,n;if(r){n=!0;try{e=t instanceof r}catch(t){e=!1,n="string"==typeof r}}else n=!1;return null!=t&&null!=t&&(!n||(typeof t===r||e||"array"===r&&Array.isArray(t))&&("string"!=r||"string"==typeof t&&t.trim().length>0))};
