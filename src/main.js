@@ -31,7 +31,7 @@ function isset(test, type) {
       !_check || (typeof test === type || _instance)
     ) && (
       // evaluates to true if no typecheck is required, the requested type is not a string or the value is not an empty string
-      !_check || (type != 'string') || (test != '' && test != ' ')
+      !_check || (type != 'string') || (typeof test === 'string' && test.trim().length > 0)
     )
   );
 }
