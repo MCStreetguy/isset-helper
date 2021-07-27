@@ -51,7 +51,8 @@ The algorithm follows the subsequent rules:
 
 1. `variable` is not `null`
 2. `variable` is not `undefined`
-3. If `type` is a string, `typeof variable` has to match `type`, otherwise, `variable` has to match `instanceof type`
+3. If `type` is a string, `typeof variable` has to match `type`,
+   otherwise `variable` has to match `instanceof type`
 4. If `type` is `"string"`, the length of trimmed `variable` is greater than zero
 5. If `type` is `"array"`, `variable` has to pass the [`Array.isArray()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray) check
 
