@@ -1,36 +1,50 @@
-const gulp =    require('gulp'),
-      pump =    require('pump'),
-      header =  require('gulp-header'),
-      plumber = require('gulp-plumber'),
-      uglify =  require('gulp-uglify'),
-      rename =  require('gulp-rename');
+const gulp = require('gulp');
+const pump = require('pump');
+const replace = require('gulp-replace');
+const rename = require('gulp-rename');
+const terser = require('gulp-terser');
+const umd = require('gulp-umd');
 
-gulp.task('build-module', (finished) => {
-    pump([
-        gulp.src('./src/main.js'),
-        plumber(),
-        header('module.exports = '),
-        uglify({
-            keep_fnames: true
-        }),
-        rename('module.js'),
-        gulp.dest('./dist/')
-    ], finished);
-});
+exports['build-universal-module'] = (done) => {
+  pump([
+    gulp.src('./src/main.js'),
+    umd({
+      templateName: 'amdNodeWeb',
+      exports: (file) => 'isset',
+      namespace: (file) => 'isset',
+    }),
+    terser({
+      keep_fnames: /^isset$/
+    }),
+    rename('module.umd.js'),
+    gulp.dest('./dist/')
+  ], done);
+}
 
-gulp.task('build-web', (finished) => {
-    pump([
-        gulp.src('./src/main.js'),
-        plumber(),
-        header('window.isset = '),
-        uglify(),
-        rename('isset.min.js'),
-        gulp.dest('./dist/')
-    ], finished);
-});
+exports['build-commonjs-module'] = (done) => {
+  pump([
+    gulp.src('./src/main.js'),
+    replace('function', 'module.exports = function'),
+    terser({
+      keep_fnames: /^isset$/
+    }),
+    rename('module.cjs'),
+    gulp.dest('./dist/')
+  ], done);
+}
 
-gulp.task('build', ['build-module', 'build-web']);
+exports['build-for-web'] = (done) => {
+  pump([
+    gulp.src('./src/main.js'),
+    replace('function', 'window.isset = function'),
+    terser({
+      keep_fnames: /^isset$/
+    }),
+    rename('isset.min.js'),
+    gulp.dest('./dist/')
+  ], done);
+}
 
-gulp.task('default', ['build'], () => {
-    gulp.watch('./src/main.js', ['build']);
-});
+exports['build'] = gulp.parallel(exports['build-universal-module'], exports['build-commonjs-module'], exports['build-for-web']);
+exports['watch'] = () => gulp.watch('./src/main.js', exports['build']);
+exports['default'] = gulp.series(exports['build'], exports['watch']);
