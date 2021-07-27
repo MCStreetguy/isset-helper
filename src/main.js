@@ -20,12 +20,7 @@ function isset(test, type) {
       _instance = test instanceof type;
     } catch (e) {
       _instance = false;
-
-      try {
-        type = type.toLowerCase();
-      } catch (e) {
-        _check = false;
-      }
+      _check = (typeof type === 'string')
     }
   }
 
