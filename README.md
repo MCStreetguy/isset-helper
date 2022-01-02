@@ -52,10 +52,10 @@ const isset = require('isset-helper');
 Include _one_ of the following script tags in your pages head:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/isset-helper@4/dist/isset.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/mcstreetguy/isset-helper@4/dist/isset.min.js"></script>
-<script src="https://bundle.run/isset-helper@4.0/dist/isset.min.js"></script>
-<script src="https://unpkg.com/isset-helper@4/dist/isset.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/isset-helper@3.1/dist/isset.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mcstreetguy/isset-helper@3.1/dist/isset.min.js"></script>
+<script src="https://bundle.run/isset-helper@3.1/dist/isset.min.js"></script>
+<script src="https://unpkg.com/isset-helper@3.1/dist/isset.min.js"></script>
 ```
 
 The library registers the `isset` function automatically on the `window` object.
