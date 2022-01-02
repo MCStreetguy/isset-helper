@@ -20,6 +20,16 @@ function isset(test, type) {
    */
   var _check;
 
+  /**
+   * @desc validator function for integer numbers, uses polyfill if native function not available
+   * @type {function}
+   */
+  var _isInteger = Number.isInteger || function (value) {
+    return typeof value === 'number' &&
+      isFinite(value) &&
+      Math.floor(value) === value;
+  };
+
   if (!type) {
     _check = false;
   } else {
@@ -29,7 +39,7 @@ function isset(test, type) {
       _instance = test instanceof type;
     } catch (e) {
       _instance = false;
-      _check = (typeof type === 'string')
+      _check = (typeof type === 'string');
     }
   }
 
@@ -42,10 +52,16 @@ function isset(test, type) {
         (typeof test === type || _instance) || (
           // special edge-case check for type 'array' as these are technically of type 'object'
           type === 'array' && Array.isArray(test) 
+        ) || (
+          // special edge-case check for type 'integer' as these are technically of type 'number'
+          type === 'integer' && _isInteger(test)
+        ) || (
+          // special edge-case check for type 'float' and 'double' as these are technically of type 'number'
+          (type === 'float' || type === 'double') && !_isInteger(test)
         )
       ) && (
         // evaluates to true if the requested type is not a string or the value is not an empty string
-        (type != 'string') || (typeof test === 'string' && test.trim().length > 0)
+        (type != 'string') || (typeof test === 'string' && test.length > 0)
       )
     )
   );
