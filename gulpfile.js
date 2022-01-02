@@ -21,22 +21,10 @@ exports['build-universal-module'] = (done) => {
   ], done);
 }
 
-exports['build-commonjs-module'] = (done) => {
-  pump([
-    gulp.src('./src/main.js'),
-    replace('function', 'module.exports = function'),
-    terser({
-      keep_fnames: /^isset$/
-    }),
-    rename('module.cjs'),
-    gulp.dest('./dist/')
-  ], done);
-}
-
 exports['build-for-web'] = (done) => {
   pump([
     gulp.src('./src/main.js'),
-    replace('function', 'window.isset = function'),
+    replace(/^function/, 'window.isset = function'),
     terser({
       keep_fnames: /^isset$/
     }),
@@ -45,6 +33,6 @@ exports['build-for-web'] = (done) => {
   ], done);
 }
 
-exports['build'] = gulp.parallel(exports['build-universal-module'], exports['build-commonjs-module'], exports['build-for-web']);
+exports['build'] = gulp.parallel(exports['build-universal-module'], exports['build-for-web']);
 exports['watch'] = () => gulp.watch('./src/main.js', exports['build']);
 exports['default'] = gulp.series(exports['build'], exports['watch']);
