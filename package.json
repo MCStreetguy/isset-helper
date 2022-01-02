@@ -1,6 +1,6 @@
 {
   "name": "isset-helper",
-  "version": "4.0.0",
+  "version": "3.0.1",
   "description": "A tiny helper method, checking a variable for existence",
   "main": "./dist/module.umd.js",
   "author": {
