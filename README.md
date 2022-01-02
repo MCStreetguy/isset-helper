@@ -1,4 +1,4 @@
-# Isset Helper
+# IsSet Helper
 
 [![GitHub open issues](https://img.shields.io/github/issues/MCStreetguy/isset-helper)](https://github.com/MCStreetguy/isset-helper/issues)
 [![GitHub license](https://img.shields.io/github/license/MCStreetguy/isset-helper)](https://github.com/MCStreetguy/isset-helper/blob/master/LICENSE)
@@ -12,7 +12,7 @@
 Since checking variable types and existence always has been painful in Javascript, validation assertions normally are exhausting to write.
 This module solves this definitely.
 
-- [Isset Helper](#isset-helper)
+- [IsSet Helper](#isset-helper)
   - [Browser Compatibility](#browser-compatibility)
   - [Installation](#installation)
     - [as a module](#as-a-module)
